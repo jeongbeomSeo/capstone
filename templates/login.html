@@ -1,0 +1,22 @@
+{% extends 'layout.html' %} {% block css %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='login.css')}}" />
+
+{% endblock %} {% block content %}
+
+<div class="login">
+  <div class="login-title">
+    <span>세종대학생 전용 로그인 페이지</span>
+  </div>
+  <form action="/login" method="post">
+    <input type="id" name="id" placeholder="학번" autocomplete="off" />
+    <input type="password" name="password" placeholder="비밀번호" />
+    <input type="submit" value="Log In" />
+  </form>
+</div>
+
+{% if error %}
+<div class="error">
+  <span>{{ error }}</span>
+</div>
+{% endif %} {% endblock %}

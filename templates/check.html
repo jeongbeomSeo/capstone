@@ -1,110 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>합격률 확인 페이지</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='check.css')}}" />
-  </head>
-  <body>
-    <form action="http://localhost:5000/result" method="post">
-      <p>학점 <input type="number" step="0.01" name="score" required /></p>
-      <p id="toeic_opic">
-        토익&오픽
-        <select name="subject" id="subject">
-          <option value="toeic">토익</option>
-          <option value="opic">오픽</option>
-          <option value="none" selected>없음</option>
-        </select>
-      </p>
-      <p>
-        대외 활동 횟수 <input type="number" step="1" name="activity" required />
-      </p>
-      <p>
-        봉사 활동 횟수
-        <input type="number" step="1" name="volunteer" required />
-      </p>
-      <p>
-        인턴 활동 횟수 <input type="number" step="1" name="intern" required />
-      </p>
-      <input type="submit" value="확인" />
-    </form>
-  </body>
-  <script>
-    const subject = document.getElementById("subject");
-    const toeic_opic = document.getElementById("toeic_opic");
+{% extends 'layout.html' %} {% block css %}
 
-    function onSelector(event) {
-      if (event.target.value == "toeic") {
-        const toeic = document.createElement("select");
-        toeic.name = "toeic";
-        toeic.id = "toeic";
-        const opt1 = document.createElement("option");
-        opt1.value = "LV8";
-        opt1.text = "LV 8";
-        const opt2 = document.createElement("option");
-        opt2.value = "LV7";
-        opt2.text = "LV 7";
-        const opt3 = document.createElement("option");
-        opt3.value = "LV6";
-        opt3.text = "LV 6";
-        const opt4 = document.createElement("option");
-        opt4.value = "LV5";
-        opt4.text = "LV 5";
-        toeic.add(opt1, null);
-        toeic.add(opt2, null);
-        toeic.add(opt3, null);
-        toeic.add(opt4, null);
-        toeic_opic.appendChild(toeic);
-        const opic = document.getElementById("opic");
-        if (opic) {
-          opic.remove();
-        }
-      } else if (event.target.value == "opic") {
-        const opic = document.createElement("select");
-        opic.name = "opic";
-        opic.id = "opic";
-        const opt1 = document.createElement("option");
-        opt1.value = "AL";
-        opt1.text = "AL";
-        const opt2 = document.createElement("option");
-        opt2.value = "IH";
-        opt2.text = "IH";
-        const opt3 = document.createElement("option");
-        opt3.value = "IM3";
-        opt3.text = "IM3";
-        const opt4 = document.createElement("option");
-        opt4.value = "IM2";
-        opt4.text = "IM2";
-        const opt5 = document.createElement("option");
-        opt5.value = "IM1";
-        opt5.text = "IM1";
-        const opt6 = document.createElement("option");
-        opt6.value = "IL";
-        opt6.text = "IL";
-        opic.add(opt1, null);
-        opic.add(opt2, null);
-        opic.add(opt3, null);
-        opic.add(opt4, null);
-        opic.add(opt5, null);
-        opic.add(opt6, null);
-        toeic_opic.appendChild(opic);
-        const toeic = document.getElementById("toeic");
-        if (toeic) {
-          toeic.remove();
-        }
-      } else {
-        const opic = document.getElementById("opic");
-        const toeic = document.getElementById("toeic");
-        if (opic) {
-          opic.remove();
-        }
-        if (toeic) {
-          toeic.remove();
-        }
-      }
-    }
-    subject.addEventListener("change", onSelector);
-  </script>
-</html>
+<link rel="stylesheet" href="{{url_for('static', filename='check.css')}}" />
+
+{% endblock %} {% block content %}
+<div class="check">
+  <form action="http://localhost:5000/result" method="post">
+    <p>
+      <h3>학점 </h3>
+      <input type="number" step="0.01" name="score" required />
+    </p>
+    <p id="toeic_opic">
+      <h3>토익&오픽 </h3>
+      <div id="select-english">
+      <select name="subject" id="subject">
+        <option value="toeic">토익</option>
+        <option value="opic">오픽</option>
+        <option value="none" selected>없음</option>
+      </select>
+    </div>
+    </p>
+    <p>
+      <h3>대외 활동 횟수 </h3>
+      <input type="number" step="1" name="activity" required />
+    </p>
+    <p>
+      <h3>봉사 활동 횟수 </h3>
+      <input type="number" step="1" name="volunteer" required />
+    </p>
+    <p>
+      <h3>인턴 <span id="research-stuent">(or 학부연구생)</span> 활동 횟수 </h3>
+      <input type="number" step="1" name="intern" required />
+    </p>
+    <input type="submit" value="확인" />
+  </form>
+</div>
+{% endblock %} {% block script %}
+
+<script src="{{url_for('static', filename='../static/javascript/check.js')}}"></script>
+{% endblock %}

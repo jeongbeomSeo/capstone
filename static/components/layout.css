@@ -1,0 +1,41 @@
+header {
+  height: 100px;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+header nav {
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+header nav .logo {
+  width: 33%;
+}
+
+header .title {
+  width: 33%;
+  text-align: center;
+}
+
+header .user {
+  display: flex;
+  width: 33%;
+  justify-content: flex-end;
+}
+
+header .logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+header .user div {
+  margin: 0 5px;
+}
+
+nav .title {
+  font-size: 25px;
+  font-weight: 700;
+}

@@ -1,0 +1,39 @@
+.semi-conductor-classes {
+  margin: 30px 0 0 10px;
+}
+
+.semi-conductor-classes .class {
+  font-size: 20px;
+  padding-bottom: 50px;
+  border-bottom: 2px solid gray;
+}
+
+.semi-conductor-classes .title {
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.semi-conductor-classes a {
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease-in-out;
+}
+
+.semi-conductor-classes a:hover {
+  font-size: 18px;
+  color: red;
+}
+
+.semi-conductor-classes .url,
+.apply-method,
+.pay,
+.selection,
+.location {
+  margin-bottom: 10px;
+}
+
+body {
+  background: white;
+}

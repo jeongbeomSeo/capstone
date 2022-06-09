@@ -1,0 +1,64 @@
+.check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, -50%);
+  font-size: 20px;
+}
+
+.check p {
+  margin: 10px 0;
+}
+
+.check h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.check input[type="number"] {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid #34495e;
+  font-size: 16px;
+  padding: 7px 0;
+  width: 10%;
+}
+
+.check select {
+  width: 75px;
+  margin: 10px 0;
+  padding: 0.8em 0.5em;
+  border: 1px solid #f1f2f6;
+  font-family: inherit;
+  background: transparent;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.check input[type="submit"] {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  outline: none;
+  font-size: 17px;
+  transform: translateX(-7px);
+}
+
+#research-stuent {
+  color: gray;
+  font-size: 13px;
+}
+
+body {
+  background: #f5f6f7;
+}

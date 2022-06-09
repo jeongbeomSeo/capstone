@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='components/layout.css')}}"
+    />
+    {% block css %} {% endblock %}
+    <title>캡스톤 4조</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="/home">
+            <img
+              src="{{url_for('static', filename='../static/img/sejonglogo.png')}}"
+              alt=""
+            />
+          </a>
+        </div>
+        <div class="title">세종대 삼전 패스</div>
+        <div class="user">
+          {% if user %}
+          <div class="student-major">{{ user["major"] }}</div>
+          {% if user['status'] == '졸업' %}
+          <div class="student-grade">졸업</div>
+          {% else %}
+          <div class="student-grade">{{ user["grade"] }} 학년</div>
+          {% endif %}
+          <div class="student-id">{{ user["id"] }}</div>
+          <div class="student-name">{{ user["name"] }}</div>
+          {% endif %}
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Main Content Block -->
+      {% block content %} {% endblock %}
+    </main>
+  </body>
+  {% block script %} {% endblock %}
+</html>

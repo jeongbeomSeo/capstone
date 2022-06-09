@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} {% block css %}
+
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='prediction.css')}}"
+/>
+
+{% endblock %} {% block content %}
+
+<div class="prediction">
+  <div class="title">삼전패스 AI 인공지능 합격률</div>
+  <div class="circle">
+    <span id="percent">{{ percent }}%</span>
+  </div>
+</div>
+
+{% endblock %}

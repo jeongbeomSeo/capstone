@@ -1,0 +1,12 @@
+{% extends 'layout.html' %} {% block css %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}" />
+
+{% endblock %} {% block content %}
+
+<div class="home">
+  <a href="/detail">추천 대외 활동</a>
+  <a href="/check">서류 합격 예측 서비스</a>
+</div>
+
+{% endblock %}
